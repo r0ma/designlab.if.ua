@@ -1,0 +1,112 @@
+#AcmeDesignBundle:
+#    resource: "@AcmeDesignBundle/Resources/config/routing.yml"
+#    prefix:   /
+
+#Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal
+
+#_imagine:
+#    resource: .
+#    type:     imagine
+
+
+
+login:
+    pattern:  /login
+    defaults: { _controller: AcmeDesignBundle:Security:login }
+
+login_check:
+    pattern:  /login_check
+
+logout:
+    pattern: /logout
+
+
+main:
+    pattern:  /
+    defaults: { _controller: AcmeDesignBundle:Main:index }
+
+
+
+photo_list:
+    pattern:  /photo/list
+    defaults: { _controller: AcmeDesignBundle:Photo:index }
+
+photos_object:
+    pattern:  /photo/list/{id}
+    defaults: { _controller: AcmeDesignBundle:Photo:photosObject }
+
+photos_to_type:
+    pattern:  /photos/{type_id}/list
+    defaults: { _controller: AcmeDesignBundle:Photo:photosToType }
+
+photo_add:
+    pattern:  /photo/add
+    defaults: { _controller: AcmeDesignBundle:Photo:add }
+
+photo_delete:
+    pattern:  /photo/delete/{photo_id}
+    defaults: { _controller: AcmeDesignBundle:Photo:delete }
+
+
+object_list:
+    pattern:  /object/list
+    defaults: { _controller: AcmeDesignBundle:Object:index }
+
+object_add:
+    pattern:  /object/add
+    defaults: { _controller: AcmeDesignBundle:Object:add }
+
+object_delete:
+    pattern:  /object/delete/{object_id}
+    defaults: { _controller: AcmeDesignBundle:Object:delete }
+
+
+type_photo_manager:
+    pattern:  /type_photo/manager
+    defaults: { _controller: AcmeDesignBundle:TypePhoto:manager }
+
+type_photo_create:
+    pattern:  /type_photo/create
+    defaults: { _controller: AcmeDesignBundle:TypePhoto:create }
+
+type_photo_edit:
+    pattern:  /type_photo/edit/{type_photo_id}
+    defaults: { _controller: AcmeDesignBundle:TypePhoto:edit }
+
+type_photo_delete:
+    pattern:  /type_photo/delete/{type_photo_id}
+    defaults: { _controller: AcmeDesignBundle:TypePhoto:delete }
+
+
+type_object_manager:
+    pattern:  /type_object/manager
+    defaults: { _controller: AcmeDesignBundle:TypeObject:manager }
+
+type_object_create:
+    pattern:  /type_object/create
+    defaults: { _controller: AcmeDesignBundle:TypeObject:create }
+
+type_object_edit:
+    pattern:  /type_object/edit/{type_object_id}
+    defaults: { _controller: AcmeDesignBundle:TypeObject:edit }
+
+type_object_delete:
+    pattern:  /type_object/delete/{type_object_id}
+    defaults: { _controller: AcmeDesignBundle:typeObject:delete }
+
+
+
+about_us:
+    pattern:  /about_us
+    defaults: { _controller: AcmeDesignBundle:Main:aboutUs }
+
+service_price:
+    pattern:  /service_price
+    defaults: { _controller: AcmeDesignBundle:Main:servicePrice }
+
+contact:
+    pattern:  /contacts
+    defaults: { _controller: AcmeDesignBundle:Main:contacts }

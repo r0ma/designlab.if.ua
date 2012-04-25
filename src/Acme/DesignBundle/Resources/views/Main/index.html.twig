@@ -1,0 +1,53 @@
+{% extends 'AcmeDesignBundle::layout.html.twig' %}
+
+{% block supersized %}
+<script type="text/javascript">
+    jQuery(function($){
+        $.supersized({
+
+            // Functionality
+            autoplay                :   1,
+            slide_interval          :   5000,		// Length between transitions
+            transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed		:	1000,		// Speed of transition
+
+            // Components
+            slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+            slides 					:  	[			// Slideshow Images
+                {	image : '/web/uploads/main_slider/1.jpg',
+                    name  : 'Готельний номер',
+                    title : 'Візуалізація виконувалась для авторського колективу з Києва. 2012 р',
+                    thumb : '/web/uploads/main_slider/1.jpg'
+                },
+
+                {	image : '/web/uploads/main_slider/2.jpg',
+                    name  : 'Класична кухня',
+                    title : 'Візуалізація виконувалась для меблевої фірми. 2010 р',
+                    thumb : '/web/uploads/main_slider/2.jpg'
+                },
+
+                {	image : '/web/uploads/main_slider/3.jpg',
+                    name  : 'Ресторан «Вінтаж»',
+                    title : 'Розробка дизайн-проекта ресторану в Кракові. 2010 р',
+                    thumb : '/web/uploads/main_slider/3.jpg'
+//                    url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'
+                },
+
+                {	image : '/web/uploads/main_slider/4.jpg',
+                    name  : 'Novus',
+                    title : 'Концепт-візуалізація фасаду торгового центру в Києві. 2012 р',
+                    thumb : '/web/uploads/main_slider/4.jpg'
+//                    url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'
+                }
+            ]
+
+        });
+    });
+</script>
+{% endblock %}
+
+{% block title %}Hello{% endblock %}
+
+{% block content %}
+
+{% endblock %}

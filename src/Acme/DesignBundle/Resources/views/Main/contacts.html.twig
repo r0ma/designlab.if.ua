@@ -1,0 +1,40 @@
+{% extends 'AcmeDesignBundle::layout.html.twig' %}
+
+{% block supersized %}
+<script type="text/javascript">
+    jQuery(function($){
+        $.supersized({
+
+            // Functionality
+            autoplay                :   0,
+            slide_interval          :   5000,		// Length between transitions
+            transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed		:	1000,		// Speed of transition
+
+            // Components
+            slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+            slides 					:  	[			// Slideshow Images
+                {	image : '/web/img/foto/fons/kontakty.jpg',
+                    name  : 'Контакти',
+                    title : 'Де нас знайти',
+                    thumb : '/web/img/foto/fons/kontakty.jpg'
+//                    url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'
+                }
+            ]
+
+        });
+    });
+</script>
+{% endblock %}
+
+{% block title %}Про нас{% endblock %}
+
+{% block content %}
+{#<div id="white_content">#}
+
+{#</div>#}
+{% endblock %}
+
+
+{% block description %}{% endblock %}
+{% block controls %}{% endblock %}

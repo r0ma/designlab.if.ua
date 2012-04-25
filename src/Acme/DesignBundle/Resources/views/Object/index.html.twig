@@ -1,0 +1,66 @@
+{% extends 'AcmeDesignBundle::layout.html.twig' %}
+
+{% block supersized %}
+<script type="text/javascript">
+    jQuery(function($){
+        $.supersized({
+
+            // Functionality
+            autoplay                :   0,
+            slide_interval          :   5000,		// Length between transitions
+            transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed		:	1000,		// Speed of transition
+
+            // Components
+            slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+            slides 					:  	[			// Slideshow Images
+                {	image : '/web/img/foto/fons/portfolio.jpg',
+                    name  : 'Портфоліо',
+                    title : 'Наші проекти',
+                    thumb : '/web/img/foto/fons/portfolio.jpg'
+//                    url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'
+                }
+            ]
+
+        });
+    });
+</script>
+{% endblock %}
+
+{% block title %}Портфоліо{% endblock %}
+
+{% block content %}
+    {#<h2>Object list</h2>#}
+    {#<p>This is list of all objects on this website:</p>#}
+    <ul id="photo_list">
+        {% for object in objects %}
+            <li>
+                <a href="{{ path('photos_object', {'id': object.id}) }}">
+                    <span class="title">
+                        {{ object.name}}
+                    </span>
+                    {#({{ object.type }})#}
+                    <img src="/web/uploads/prew_project/{{ object.path }}">
+                    <div class="grad"></div>
+                </a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <span class="edit_block">
+                        <a onclick="if (confirm('Ви дійсно бажаєте видалити обєкт {{ object.name }}') == false) return false;"
+                           href="{{ path('object_delete', { 'object_id': object.id }) }}">(видалити)</a>
+                    </span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+{% block description %}{% endblock %}
+{% block controls %}
+    <ul class="list_photo_type">
+        <span>Фото по типам:</span>
+        {% for photo_type in photo_types %}
+            <li><a href="{{ path('photos_to_type', {'type_id': photo_type.id}) }}">{{ photo_type.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

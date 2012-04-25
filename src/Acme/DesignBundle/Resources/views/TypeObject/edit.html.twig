@@ -1,0 +1,48 @@
+{% extends 'AcmeDesignBundle::layout.html.twig' %}
+
+{% block supersized %}
+
+<script type="text/javascript">
+    jQuery(function($){
+        $.supersized({
+
+            // Functionality
+            autoplay                :   0,
+            slide_interval          :   5000,		// Length between transitions
+            transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed		:	1000,		// Speed of transition
+
+            // Components
+            slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+            slides 					:  	[			// Slideshow Images
+                {	image : '/web/img/foto/fons/portfolio.jpg',
+                    name  : 'Портфоліо',
+                    title : 'Наші проекти',
+                    thumb : '/web/img/foto/fons/portfolio.jpg'
+//                    url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'
+                }
+            ]
+
+        });
+    });
+</script>
+
+{% endblock %}
+
+{% block title %}Редагування типу фото{% endblock %}
+
+{% block content %}
+    <h3>Редагування типу фото</h2>
+    <form action="{{ path('type_object_edit', { 'type_object_id': type_object_id }) }}" method="post" {{ form_enctype(form) }}>
+
+        {{ form_widget(form) }}
+
+        <br>
+        <input type="submit" value="Зберегти тип об’єкту" />
+    </form>
+
+{% endblock %}
+
+{% block controls %}
+
+{% endblock%}

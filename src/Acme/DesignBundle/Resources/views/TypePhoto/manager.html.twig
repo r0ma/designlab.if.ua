@@ -1,0 +1,69 @@
+{% extends 'AcmeDesignBundle::layout.html.twig' %}
+
+{% block supersized %}
+
+<script type="text/javascript">
+    jQuery(function($){
+        $.supersized({
+
+            // Functionality
+            autoplay                :   0,
+            slide_interval          :   5000,		// Length between transitions
+            transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed		:	1000,		// Speed of transition
+
+            // Components
+            slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+            slides 					:  	[			// Slideshow Images
+                {	image : '/web/img/foto/fons/portfolio.jpg',
+                    name  : 'Портфоліо',
+                    title : 'Наші проекти',
+                    thumb : '/web/img/foto/fons/portfolio.jpg'
+//                    url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'
+                }
+            ]
+
+        });
+    });
+</script>
+
+{% endblock %}
+
+{% block title %}Менеджер типів фото{% endblock %}
+
+{% block content %}
+    <h2>Менеджер типів фото</h2>
+    {#<p>This is list of all photos on this website:</p>#}
+
+    <ul id="types_list">
+        {% for photo_type in photo_types %}
+        <li>
+            <h3>{{ photo_type.name }}</h3>
+            <span class="edit_block">
+                (<a onclick="if (confirm('Ви дійсно бажаєте видалити тип фото {{ photo_type.name }}? Зауважте, всі фото прикріплені до цього типу будуть видалені!') == false) return false;"
+                   class="photo_delete"
+                   href="{{ path('type_photo_delete', { 'type_photo_id': photo_type.id }) }}" >видалити</a> | 
+                <a class="photo_delete"
+                   href="{{ path('type_photo_edit', { 'type_photo_id': photo_type.id }) }}" >редагувати</a>)
+            </span>
+            {% if photo_type.description != '' %}
+                <p>{{ photo_type.description }}</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Добавити новий тип фото</h3>
+    <form action="{{ path('type_photo_create') }}" method="post" {{ form_enctype(form) }}>
+
+        {{ form_widget(form) }}
+
+        <br>
+        <input type="submit" value="Зберегти тип фото" />
+    </form>
+
+{% endblock %}
+
+{% block controls %}
+
+{% endblock%}

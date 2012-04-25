@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="{{ asset('/web/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('/web/css/main.css') }}" type="text/css" media="all" />
+    <script type="text/javascript" src="{{ asset('/web/js/jquery-1.5.1.min.js') }}"></script>
+    <title>DesignLab | Adminpanel</title>
+    <style>
+        body {
+            background: none repeat scroll 0 0 #EEE;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="login_block">
+    <a class="logo" href="{{ path('main') }}"><img src="/web/img/logo.png"></a>
+
+    <form action="{{ path('login_check') }}" method="post">
+        <label for="username">Логін</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="_password" />
+
+        {#
+            Если вы хотите контролировать URL, на который перенаправить пользователя:
+            <input type="hidden" name="_target_path" value="/account" />
+        #}
+
+        <input type="submit" name="login" value="Увійти" />
+    </form>
+
+    {% if error %}
+        <div class="error">{{ error.message }}</div>
+    {% endif %}
+</div>
+
+
+</body>
+</html>

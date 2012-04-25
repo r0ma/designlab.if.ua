@@ -1,0 +1,117 @@
+{% extends 'AcmeDesignBundle::layout.html.twig' %}
+
+{% block supersized %}
+<script type="text/javascript">
+    jQuery(function($){
+        $.supersized({
+
+            // Functionality
+            autoplay                :   0,
+            slide_interval          :   5000,		// Length between transitions
+            transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed		:	1000,		// Speed of transition
+
+            // Components
+            slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+            slides 					:  	[			// Slideshow Images
+                {	image : '/web/img/foto/fons/poslugy_i_ciny.jpg',
+                    name  : 'Послуги та ціни',
+                    title : 'Послуги та ціни',
+                    thumb : '/web/img/foto/fons/poslugy_i_ciny.jpg'
+//                    url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'
+                }
+            ]
+
+        });
+    });
+
+    $(document).ready(function(){
+        $('#service_content>div').hide(0);
+        $('#service_content>div.c_1').show(0);
+
+        $('#service_menu>li').click(function(){
+            var s_id = $(this)[0].attributes['abbr'].value;
+
+            $('#service_menu>li').removeClass('active');
+            $('#service_menu>li.s_'+s_id).addClass('active');
+
+            $('#service_content>div').hide();
+            $('#service_content>div.c_'+s_id).show();
+        });
+    });
+
+</script>
+{% endblock %}
+
+{% block title %}Про нас{% endblock %}
+
+{% block content %}
+<ul id="service_menu">
+    <li class="s_title">дизайн-проект:</li>
+    <li abbr="1" class="s_1 active">«ескізний»</li>
+    <li abbr="2" class="s_2">«робочий»</li>
+    <li abbr="3" class="s_3 push">«робочий +»</li>
+    <li abbr="5" class="s_5 ">авторський нагляд</li>
+    <li abbr="6" class="s_6 push">декорування</li>
+    <li abbr="7" class="s_7 ">ремонтні роботи</li>
+</ul>
+
+<div id="service_content">
+    <div class="c_1">
+        <p>План до перепланування;<br>
+        План демонтажу та зведення  перестінків;<br>
+        План після перепланування;<br>
+        План зонування приміщення;<br>
+        План розміщення меблів, техніки та сантехнічного обладнання;<br>
+        Ескізна візуалізація.</p>
+    </div>
+    <div class="c_2">
+        <p>План до перепланування;<br>
+        План демонтажу та зведення  перестінків;<br>
+        План після перепланування;<br>
+        План зонування приміщення;<br>
+        План розміщення меблів, техніки та сантехнічного обладнання;<br>
+        Ескізна візуалізація;<br>
+        План стелі;<br>
+        План підлоги;<br>
+        Схема прив’язки вимикачів та освітлювальної техніки;<br>
+        План розміщення освітлювальної техніки;<br>
+        План розміщення розеток та вимикачів;<br>
+        Відомість заповнення дверних пройомів;<br>
+        План розгортки стін;<br>
+        Розгортки стін;<br>
+        Розкладка плитки.</p>
+    </div>
+    <div class="c_3">
+        <p>План до перепланування;<br>
+        План демонтажу та зведення  перестінків;<br>
+        План після перепланування;<br>
+        План зонування приміщення;<br>
+        План розміщення меблів, техніки та сантехнічного обладнання;<br>
+        Ескізна візуалізація;<br>
+        План стелі;<br>
+        План підлоги;<br>
+        Схема прив’язки вимикачів та освітлювальної техніки;<br>
+        План розміщення освітлювальної техніки;<br>
+        План розміщення розеток та вимикачів;<br>
+        Відомість заповнення дверних пройомів;<br>
+        План розгортки стін;<br>
+        Розгортки стін;<br>
+        Розкладка плитки;<br>
+        Відомість оздоблювальних матеріалів з площами і найменуваннями;<br>
+        Відомість предметів мебелі;<br>
+        Відомість джерел світла;<br>
+        Підбір декору віконних пройомів;<br>
+        Відомість з рекомендованими матеріалами обробки;<br>
+        Відомість з рекомендованими меблями;<br>
+        Візуалізація.</p>
+    </div>
+    <div class="c_5">авторський нагляд</div>
+    <div class="c_6">декорування</div>
+    <div class="c_7">ремонтні роботи</div>
+</div>
+{% endblock %}
+
+
+{% block description %}{% endblock %}
+{% block controls %}{% endblock %}

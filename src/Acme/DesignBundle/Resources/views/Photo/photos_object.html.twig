@@ -1,0 +1,48 @@
+{% extends 'AcmeDesignBundle::layout.html.twig' %}
+
+{% block supersized %}
+<script type="text/javascript">
+    jQuery(function($){
+        $.supersized({
+
+            // Functionality
+            autoplay                :   0,
+            slide_interval          :   5000,		// Length between transitions
+            transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed		:	1000,		// Speed of transition
+
+            // Components
+            slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+            slides 					:  	[			// Slideshow Images
+                {% for photo in photos %}
+                {	image : '/web/uploads/photos/{{ photo.path }}',
+                    name  : '{{ photo.name}}',
+                    title : '{{ photo.description }} ({{ photo.type }})',
+                    thumb : '/web/uploads/photos/{{ photo.path }}',
+//                    url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'
+                },
+                {% endfor %}
+            ]
+
+        });
+    });
+</script>
+{% endblock %}
+
+{% block title %}Photo list{% endblock %}
+
+{#{% block content %}#}
+{#<h2>Photos list</h2>#}
+{#<p>This is list of all photos on this website:</p>#}
+{#<ul id="photo_list">#}
+    {#{% for photo in photos %}#}
+    {#<li>#}
+        {#{{ photo.type }} -> {{ photo.name}}<br>#}
+        {#{{ photo.description }}#}
+        {#<br>#}
+        {#<img style="width: 285px;" src="/web/uploads/photos/{{ photo.path }}">#}
+
+    {#</li>#}
+    {#{% endfor %}#}
+{#</ul>#}
+{#{% endblock %}#}

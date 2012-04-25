@@ -1,0 +1,15 @@
+<ul>
+{% for item_menu in main_menu %}
+
+    <li class="{{ item_menu.active }}">
+        <a href="{{ path(item_menu.route) }}">{{ item_menu.name }}</a>
+
+        {% if item_menu.sub_menu is defined %}
+            <ul class="sub_menu">
+            {% for item_submenu in item_menu.sub_menu %}<li class="{{ item_submenu.active }}"><a href="{{ item_submenu.route }}">{{ item_submenu.name }}</a></li>{% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+
+{% endfor %}
+</ul>
