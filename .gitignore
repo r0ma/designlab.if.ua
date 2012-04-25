@@ -2,13 +2,11 @@
 app/bootstrap*
 
 # Symfony directories
-vendor/*
 */logs/*
 */cache/*
 web/uploads/*
-web/bundles/*
+web/.htaccess
 
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
-web/.htaccess
