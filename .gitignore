@@ -10,4 +10,5 @@ web/.htaccess
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
-.git/*
+/.git/*
+/.htaccess
