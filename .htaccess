@@ -1,0 +1,6 @@
+AddDefaultCharset utf-8
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ web/app_dev.php [QSA,L]
+</IfModule>
