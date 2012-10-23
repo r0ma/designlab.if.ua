@@ -9,8 +9,8 @@ security:
     providers:
         in_memory:
             users:
-                user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                roma: { password: qwerty, roles: [ 'ROLE_ADMIN' ] }
+                user:  { password: ****, roles: [ 'ROLE_USER' ] }
+                roma: { password: ****, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
         dev:
